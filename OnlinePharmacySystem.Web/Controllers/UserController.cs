@@ -88,7 +88,6 @@ namespace onlinePharmacySystem.Web.Controllers
                 return View();
             }
 
-
             // Set user session or authentication ticket here
             // For example: HttpContext.Session.SetString("UserName", user.UserName);
 
