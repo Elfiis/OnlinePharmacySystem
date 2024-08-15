@@ -1,0 +1,41 @@
+﻿@model IEnumerable<onlinePharmacySystem.Web.Models.Products>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Pharmacy</th>
+            <th>Supplier</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@product.ProductImageURL" alt="@product.ProductName" style="width:100px; height:auto;" />
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "Products", new { id = product.ProductID })">
+                        @product.ProductName
+                    </a>
+                </td>
+                <td>@product.ProductBrand.BrandName</td>
+                <td>@product.ProductCategory.CategoryName</td>
+                <td>@product.ProductPharmacies.PharmacyName</td>
+                <td>@product.ProductSupplier.SupplierName</td>
+                <td>@product.ProductPrice.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

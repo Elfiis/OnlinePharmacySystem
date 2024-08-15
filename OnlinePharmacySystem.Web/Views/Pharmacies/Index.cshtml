@@ -1,0 +1,31 @@
+﻿@model IEnumerable<onlinePharmacySystem.Web.Models.Pharmacies>
+
+@{
+    ViewData["Title"] = "Pharmacies";
+}
+
+<h2>Pharmacies</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Pharmacy Name</th>
+            <th>Phone Number</th>
+            <th>Working Days</th>
+            <th>Working Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pharmacy in Model)
+        {
+            <tr>
+                <td>
+                    <a href="~/Pharmacies/Details/@pharmacy.PharmacyID">@pharmacy.PharmacyName</a>
+                </td>
+                <td>@pharmacy.PharmacyPhoneNumber</td>
+                <td>@pharmacy.PharmacyWorkingDays</td>
+                <td>@pharmacy.PharmacyWorkingHours</td>
+            </tr>
+        }
+    </tbody>
+</table>

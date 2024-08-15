@@ -1,0 +1,24 @@
+﻿@model onlinePharmacySystem.Web.Models.Products
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2>@Model.ProductName</h2>
+
+<div class="product-detail">
+    <div>
+        <img src="@Model.ProductImageURL" alt="@Model.ProductName" style="width:300px; height:auto;" />
+    </div>
+    <div>
+        <p><strong>Brand:</strong> @(Model.ProductBrand != null ? Model.ProductBrand.BrandName : "N/A")</p>
+        <p><strong>Category:</strong> @(Model.ProductCategory != null ? Model.ProductCategory.CategoryName : "N/A")</p>
+        <p><strong>Pharmacy:</strong> @(Model.ProductPharmacies != null ? Model.ProductPharmacies.PharmacyName : "N/A")</p>
+        <p><strong>Supplier:</strong> @(Model.ProductSupplier != null ? Model.ProductSupplier.SupplierName : "N/A")</p>
+        <p><strong>Price:</strong> @Model.ProductPrice.ToString("C")</p>
+        <p><strong>Description:</strong> @(Model.ProductDescription != null ? Model.ProductDescription : "No description available")</p>
+        <p><strong>FAQs:</strong> @(Model.ProductFAQs != null ? Model.ProductFAQs.Question + ": " + Model.ProductFAQs.Answer : "No FAQs available")</p>
+    </div>
+</div>
+
+<a href="@Url.Action("Index", "Products")" class="btn btn-primary">Back to Products</a>
