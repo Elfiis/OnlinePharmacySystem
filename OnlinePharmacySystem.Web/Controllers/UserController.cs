@@ -63,8 +63,6 @@ namespace onlinePharmacySystem.Web.Controllers
             return View(user);
         }
 
-
-
         // GET: User/Login
         public IActionResult Login()
         {
